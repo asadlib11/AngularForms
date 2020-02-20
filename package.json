@@ -1,7 +1,7 @@
 {
   "name": "angular-forms",
   "author": "Asad Ali Baloch",
-  "description": "This is a project with implementation of reactive forms",
+  "description": "This is a project with implementation of reactive forms using angular material for UI",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
