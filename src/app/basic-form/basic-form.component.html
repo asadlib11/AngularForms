@@ -1,1 +1,48 @@
-<p>basic-form works!</p>
+<mat-card class="matCard">
+    <mat-card-title style="text-align: center;">Reactive Form</mat-card-title>
+    <div style="text-align:center">
+        <form [formGroup]="angForm" novalidate>
+            <div class="form-group"> 
+                <mat-form-field appearance="fill">
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name">
+                </mat-form-field>
+            </div>
+            <div *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['name'].errors.required">
+                <mat-card style="color: #721c24; background: #f8d7da;">Name is required</mat-card>
+                </div>
+            </div>
+            <div class="form-group">
+                <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email">
+                </mat-form-field>
+            </div>
+            <div *ngIf="angForm.controls['email'].invalid && (angForm.controls['email'].dirty || angForm.controls['email'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['email'].errors.required">
+                <mat-card style="color: #721c24; background: #f8d7da;">Email is required</mat-card>
+                </div>
+            </div>
+            <div class="form-group">
+                <mat-form-field appearance="fill">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" formControlName="password">
+                </mat-form-field>
+            </div>
+            <div *ngIf="angForm.controls['password'].invalid && (angForm.controls['password'].dirty || angForm.controls['password'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['password'].errors.required">
+                <mat-card style="color: #721c24; background: #f8d7da;">Password is required</mat-card>
+                </div>
+            </div>
+            <button type="submit"
+                [disabled]="angForm.pristine || angForm.invalid" class="btn btn-success">
+                Save
+            </button>
+        </form>
+
+        <!-- <p>Showing Reactivity of form</p>
+        <p>Form value: {{ angForm.value | json }}</p>
+        <p>Form status: {{ angForm.status | json }}</p> -->
+    </div>
+</mat-card>
